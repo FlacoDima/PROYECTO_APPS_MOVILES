@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">PROYECTO UNILOCAL</string>
+
+    <!--Variables formulario login-->
+    <string name="txt_perfil">Perfil</string>
+    <string name="txt_app">UNILOCAL</string>
+    <string name="txt_user">Usuario</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="txt_recover">¿Olvidaste tu contraseña?</string>
+    <string name="txt_error">Usuario o contraseña incorrectos</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="txt_create_count">Crear cuenta</string>
+    <string name="txt_user_error">El usuario es obligatorio</string>
+    <string name="txt_password_error">La contraseña debe contener al menos 8 caracteres</string>
+    <string name="txt_message_welcome">Hola, bienvenido</string>
+
+    <!--Variables formulario registro-->
+    <string name="txt_register_screen">Registro</string>
+    <string name="txt_icon_register">Registrooo</string>
+    <string name="txt_name_complete">Nombre completo</string>
+    <string name="txt_name_user">Nombre usuario</string>
+    <string name="txt_email">Correo electrónico</string>
+    <string name="txt_residence_city">Ciudad residencia</string>
+<!--    <string name=""></string>-->
+<!--    <string name=""></string>-->
+<!--    <string name=""></string>-->
+<!--    <string name=""></string>-->
+<!--    <string name=""></string>-->
+<!--    <string name=""></string>-->
+
+    <!--Variables creación lugar-->
+    <string name="txt_create_place">Crear Lugar</string>
+    <string name="txt_name_place">Nombre:</string>
+    <string name="txt_descripcion">Descripción:</string>
+    <string name="txt_category">Categoría:</string>
+    <string name="txt_schedule">Horario:</string>
+    <string name="txt_phone">Teléfono</string>
+    <string name="txt_load_image">Cargar imagen:</string>
+    <string name="txt_publish">Publicar</string>
+
+    <!--Variables edición perfil-->
+    <string name="txt_profile_edition">Editar perfil</string>
+    <string name="txt_name_person">Nombre</string>
+    <string name="txt_city">Ciudad</string>
+    <string name="txt_mail">Correo</string>
+    <string name="btn_change_photo">Cambiar foto</string>
+    <string name="btn_save_changes">Guardar cambios</string>
+    <string name="txt_account">Cuenta</string>
+
+
+
+
+</resources>
