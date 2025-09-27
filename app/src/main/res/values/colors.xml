@@ -4,4 +4,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purpura">#ECDEFF</color>
+    <color name="purple_50">#F1EAFE</color>
+
+
 </resources>

@@ -22,12 +22,6 @@
     <string name="txt_name_user">Nombre usuario</string>
     <string name="txt_email">Correo electrónico</string>
     <string name="txt_residence_city">Ciudad residencia</string>
-<!--    <string name=""></string>-->
-<!--    <string name=""></string>-->
-<!--    <string name=""></string>-->
-<!--    <string name=""></string>-->
-<!--    <string name=""></string>-->
-<!--    <string name=""></string>-->
 
     <!--Variables creación lugar-->
     <string name="txt_create_place">Crear Lugar</string>
@@ -47,8 +41,4 @@
     <string name="btn_change_photo">Cambiar foto</string>
     <string name="btn_save_changes">Guardar cambios</string>
     <string name="txt_account">Cuenta</string>
-
-
-
-
 </resources>
