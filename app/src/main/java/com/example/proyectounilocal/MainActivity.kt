@@ -3,16 +3,15 @@ package com.example.proyectounilocal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import com.example.proyectounilocal.ui.components.Navigation
+import com.example.proyectounilocal.ui.components.AppNav
+// Si tienes un theme composable propio, impórtalo y envuélvelo.
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            Navigation()
+            // Ejemplo si tienes un tema: ProyectoUniLocalTheme { AppNav() }
+            AppNav()
         }
     }
 }
-

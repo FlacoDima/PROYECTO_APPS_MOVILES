@@ -13,11 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -31,6 +28,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.proyectounilocal.R
+import com.example.proyectounilocal.data.UserPrefs
 
 @Composable
 fun LoginForm(
@@ -43,6 +41,13 @@ fun LoginForm(
     var password by rememberSaveable { mutableStateOf("") }
     var isPasswordError by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
+
+    // Prefill username y lectura de password guardado (solo demo)
+    val lastUser by UserPrefs.lastUsername(context).collectAsState(initial = "")
+    val lastPass by UserPrefs.lastPassword(context).collectAsState(initial = "") // 👈 nuevo
+    LaunchedEffect(lastUser) {
+        if (user.isBlank() && lastUser.isNotBlank()) user = lastUser
+    }
 
     Column(
         modifier = Modifier
@@ -59,8 +64,6 @@ fun LoginForm(
                 .size(200.dp)
                 .padding(bottom = 12.dp)
         )
-
-
 
         Spacer(Modifier.height(20.dp))
 
@@ -93,8 +96,7 @@ fun LoginForm(
             shape = fieldShape,
             colors = fieldColors,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(Modifier.height(12.dp))
@@ -119,8 +121,7 @@ fun LoginForm(
             colors = fieldColors,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(Modifier.height(8.dp))
@@ -141,7 +142,14 @@ fun LoginForm(
             onClick = {
                 val mensaje = context.getString(R.string.txt_error)
                 val mensaje2 = context.getString(R.string.txt_message_welcome)
-                if (user == "jonathan" && password == "12345678") {
+
+                // ✅ Ahora valida contra:
+                // 1) el usuario/contraseña guardados por el registro (demo local), o
+                // 2) las credenciales hardcodeadas que ya tenías
+                val okFromPrefs = (user == lastUser && password == lastPass)
+                val okHardcoded = (user == "jonathan" && password == "12345678")
+
+                if ((okFromPrefs || okHardcoded) && !isUserError && !isPasswordError) {
                     Toast.makeText(context, mensaje2, Toast.LENGTH_SHORT).show()
                     onNavigateHomeScreen()
                 } else {

@@ -57,4 +57,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.4")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
+    // --- AÑADIDOS (para recordar el usuario con DataStore) ---
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    // ---------------------------------------------------------
 }
