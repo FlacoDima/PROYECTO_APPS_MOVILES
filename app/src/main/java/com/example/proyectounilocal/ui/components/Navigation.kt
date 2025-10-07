@@ -6,70 +6,71 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.proyectounilocal.ui.screens.CreatePlace
-import com.example.proyectounilocal.ui.screens.HomeScreen
-import com.example.proyectounilocal.ui.screens.LoginForm
-import com.example.proyectounilocal.ui.screens.ProfileEdition
-import com.example.proyectounilocal.ui.screens.RecoverPassword
-import com.example.proyectounilocal.ui.screens.RegisterForm
+import com.example.proyectounilocal.ui.screens.auth.LoginForm
+import com.example.proyectounilocal.ui.screens.auth.RegisterForm
+import com.example.proyectounilocal.ui.screens.auth.RecoverPassword
+import com.example.proyectounilocal.ui.screens.user.HomeUser
 
 object Routes {
     const val LOGIN = "login"
     const val REGISTER = "register"
     const val RECOVER = "recover"
-    const val HOME = "home"
-    const val EDIT_PROFILE = "edit_profile"
-    const val CREATE_PLACE = "create_place"
+    const val HOME_USER = "home_user"
 }
 
 @Composable
 fun AppNav() {
-    val nav = rememberNavController()
+    val navController = rememberNavController()
+
     NavHost(
-        navController = nav,
+        navController = navController,
         startDestination = Routes.LOGIN
     ) {
-        login(nav)
-        register(nav)
-        recover(nav)
-        home(nav)
-        composable(Routes.EDIT_PROFILE) { ProfileEdition() }
-        composable(Routes.CREATE_PLACE) { CreatePlace() }
+        addLogin(navController)
+        addRegister(navController)
+        addRecover(navController)
+        addHomeUser(navController)
     }
 }
 
-private fun NavGraphBuilder.login(nav: NavHostController) = composable(Routes.LOGIN) {
-    LoginForm(
-        onNavigateRegister = { nav.navigate(Routes.REGISTER) },
-        onNavigateToRecover = { nav.navigate(Routes.RECOVER) },
-        onNavigateHomeScreen = {
-            nav.navigate(Routes.HOME) {
-                popUpTo(Routes.LOGIN) { inclusive = true }
+/* ---------- Login ---------- */
+private fun NavGraphBuilder.addLogin(nav: NavHostController) {
+    composable(Routes.LOGIN) {
+        LoginForm(
+            onNavigateRegister = { nav.navigate(Routes.REGISTER) },
+            onNavigateToRecover = { nav.navigate(Routes.RECOVER) },
+            onNavigateHomeScreen = {
+                nav.navigate(Routes.HOME_USER) {
+                    popUpTo(Routes.LOGIN) { inclusive = true }
+                }
             }
-        }
-    )
+        )
+    }
 }
 
-private fun NavGraphBuilder.register(nav: NavHostController) = composable(Routes.REGISTER) {
-    RegisterForm(
-        // 👇 Flecha atrás: vuelve al Login que está debajo en el back stack
-        onBack = { nav.popBackStack() },
-
-        // 👇 Tras “Registro exitoso” también volvemos al Login
-        onRegisterSuccess = { nav.popBackStack() }
-    )
+/* ---------- Registro ---------- */
+private fun NavGraphBuilder.addRegister(nav: NavHostController) {
+    composable(Routes.REGISTER) {
+        RegisterForm(
+            onBack = { nav.popBackStack() },
+            onRegisterSuccess = { nav.popBackStack() } // vuelve al login
+        )
+    }
 }
 
-private fun NavGraphBuilder.recover(nav: NavHostController) = composable(Routes.RECOVER) {
-    RecoverPassword(
-        onBack = { nav.popBackStack() },
-        onEmailSent = { nav.popBackStack() }
-    )
+/* ---------- Recuperar contraseña ---------- */
+private fun NavGraphBuilder.addRecover(nav: NavHostController) {
+    composable(Routes.RECOVER) {
+        RecoverPassword(
+            onBack = { nav.popBackStack() },
+            onEmailSent = { nav.popBackStack() }
+        )
+    }
 }
 
-private fun NavGraphBuilder.home(nav: NavHostController) = composable(Routes.HOME) {
-    HomeScreen(
-        onNavigateEditProfile = { nav.navigate(Routes.EDIT_PROFILE) },
-        onNavigateCreatePlace = { nav.navigate(Routes.CREATE_PLACE) }
-    )
+/* ---------- HomeUser (flujo de usuario) ---------- */
+private fun NavGraphBuilder.addHomeUser(nav: NavHostController) {
+    composable(Routes.HOME_USER) {
+        HomeUser()
+    }
 }

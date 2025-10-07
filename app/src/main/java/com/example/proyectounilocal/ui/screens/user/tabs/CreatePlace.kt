@@ -1,4 +1,4 @@
-package com.example.proyectounilocal.ui.screens
+package com.example.proyectounilocal.ui.screens.user.tabs
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

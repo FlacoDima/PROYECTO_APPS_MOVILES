@@ -3,6 +3,8 @@
 
     <!--Variables formulario login-->
     <string name="txt_perfil">Perfil</string>
+    <string name="txt_mapa_image">Imagen del mapa principal</string>
+
     <string name="txt_app">UNILOCAL</string>
     <string name="txt_user">Usuario</string>
     <string name="txt_password">Contraseña</string>
@@ -41,4 +43,11 @@
     <string name="btn_change_photo">Cambiar foto</string>
     <string name="btn_save_changes">Guardar cambios</string>
     <string name="txt_account">Cuenta</string>
+
+    <!-- Menú inferior (BottomBar) -->
+    <string name="menu_home">Inicio</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_CreatePlace">Crear lugar</string>
+    <string name="menu_MyPlaces">Mis lugares</string>
+    <string name="menu_ProfileEdition">Perfil</string>
 </resources>

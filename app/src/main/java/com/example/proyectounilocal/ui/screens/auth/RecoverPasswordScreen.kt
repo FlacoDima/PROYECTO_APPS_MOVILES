@@ -1,4 +1,4 @@
-package com.example.proyectounilocal.ui.screens
+package com.example.proyectounilocal.ui.screens.auth
 
 import android.util.Patterns
 import android.widget.Toast

@@ -1,4 +1,4 @@
-package com.example.proyectounilocal.ui.screens
+package com.example.proyectounilocal.ui.screens.auth
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -25,6 +25,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.text.KeyboardOptions
 import com.example.proyectounilocal.R
 import com.example.proyectounilocal.data.UserPrefs
 import kotlinx.coroutines.launch
@@ -137,7 +138,7 @@ fun RegisterForm(
         TextField(
             value = email, onValueChange = { email = it },
             singleLine = true,
-            keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+            keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
             ),
             shape = fieldShape, colors = fieldColors,
@@ -151,7 +152,7 @@ fun RegisterForm(
             value = password, onValueChange = { password = it },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+            keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password
             ),
             shape = fieldShape, colors = fieldColors,

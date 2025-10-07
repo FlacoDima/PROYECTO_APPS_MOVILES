@@ -1,4 +1,4 @@
-package com.example.proyectounilocal.ui.screens
+package com.example.proyectounilocal.ui.screens.auth
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
