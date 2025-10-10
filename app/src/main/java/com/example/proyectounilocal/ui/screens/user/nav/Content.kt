@@ -22,7 +22,14 @@ fun Content(
 
         // 🗺️ Pantalla principal (mapa)
         composable(RouteTab.MapScreen::class.simpleName!!) {
-            MapaScreen()
+            MapaScreen(navController)
+        }
+
+        // 🗺️ Pantalla detalle mapa
+        composable(RouteTab.MapDetailScreen::class.simpleName!!) {
+            MapDetail(
+                onBack = { navController.popBackStack() }
+            )
         }
 
         // 💜 Favoritos
@@ -47,9 +54,19 @@ fun Content(
             )
         }
 
+        // 👤 Perfil (principal)
+        composable(RouteTab.Profile::class.simpleName!!) {
+            Profile()
+        }
+
         // 👤 Edición de perfil
         composable(RouteTab.ProfileEdition::class.simpleName!!) {
-            ProfileEdition()
+//            ProfileEdition(navController)
+        }
+
+        // ⚠️ Confirmar cierre de sesión
+        composable(RouteTab.CloseProfile::class.simpleName!!) {
+//            CloseProfile(navController)
         }
 
         // ⚙️ Ruta adicional: edición de lugar

@@ -60,5 +60,5 @@ enum class Destination(
     Favorites(RouteTab.Favorites, Icons.Filled.Favorite, R.string.menu_favorites),
     CreatePlace(RouteTab.CreatePlace, Icons.Filled.Add, R.string.menu_CreatePlace),
     MyPlaces(RouteTab.MyPlaces, Icons.Outlined.LocationOn, R.string.menu_MyPlaces),
-    ProfileEdition(RouteTab.ProfileEdition, Icons.Filled.AccountCircle, R.string.menu_ProfileEdition)
+    Profile(RouteTab.Profile, Icons.Filled.AccountCircle, R.string.menu_ProfileEdition)
 }

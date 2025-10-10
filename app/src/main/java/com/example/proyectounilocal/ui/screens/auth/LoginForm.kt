@@ -164,7 +164,7 @@ fun LoginForm(
                 contentColor = colorResource(R.color.white)
             ),
             modifier = Modifier
-                .width(140.dp)
+                .wrapContentWidth()
                 .height(40.dp)
         ) {
             Text(
@@ -184,7 +184,7 @@ fun LoginForm(
             ),
             border = BorderStroke(1.dp, colorResource(R.color.mi_color_fav)),
             modifier = Modifier
-                .width(160.dp)
+                .wrapContentWidth()
                 .height(40.dp)
         ) {
             Icon(

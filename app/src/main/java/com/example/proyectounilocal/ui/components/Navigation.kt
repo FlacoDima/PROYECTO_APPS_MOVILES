@@ -25,6 +25,7 @@ fun AppNav() {
     NavHost(
         navController = navController,
         startDestination = Routes.LOGIN
+//        startDestination = Routes.HOME_USER
     ) {
         addLogin(navController)
         addRegister(navController)
